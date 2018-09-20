@@ -1,0 +1,10 @@
+.classpath
+.project
+.settings/
+.DS_Store
+doc/
+.idea/
+*.iml
+target/
+test-output/
+debug.log
