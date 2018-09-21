@@ -21,8 +21,8 @@ public class BrowserHelper {
     private String browserType;
 
 
-    private static WebDriver driver;
-    private static Logger logger = LoggerFactory.getLogger(BrowserHelper.class);
+    private WebDriver driver;
+    private Logger logger = LoggerFactory.getLogger(BrowserHelper.class);
 
     public WebDriver initDriver() {
         logger.info(String.format("Starting the [%s] browser...", browserType));
@@ -53,5 +53,14 @@ public class BrowserHelper {
             driver.quit();
         } else
             logger.info(String.format("The [%s] browser wre not opened.", browserType));
+    }
+
+    public void navigateTo(String url) {
+        logger.info(String.format("navigating by following [%s] url", url));
+        driver.navigate().to(url);
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 }
