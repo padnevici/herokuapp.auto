@@ -40,6 +40,7 @@ public class LoginPage extends AbstractPage {
 
     public boolean isErrorMessageDisplayed() {
         logger.info(String.format("Checking if error message is shown..."));
+        waitHelper.waitForElementToAppear(errorLabel);
         return errorLabel.isDisplayed();
     }
 
@@ -48,12 +49,23 @@ public class LoginPage extends AbstractPage {
         return errorLabel.getText();
     }
 
-    public WebElement getErrorLabel() {
-        return errorLabel;
+    public DashboardPage loginAs(String username, String password) {
+        logger.info(String.format("Login with valid credentials..."));
+        enterUsername(username);
+        enterPasswod(password);
+        clickLoginBtn();
+        return pageHelper.getPage(DashboardPage.class);
     }
 
     @Override
-    protected void waitForLoad() {
+    public void waitForLoad() {
         super.waitForLoad(loginButton);
+    }
+
+    @Override
+    public boolean isOnThePage() {
+        return loginButton.isDisplayed()
+                && usernameField.isDisplayed()
+                && passwordField.isDisplayed();
     }
 }

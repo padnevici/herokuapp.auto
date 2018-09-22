@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = "json:target/cucumber-report.json",
+        plugin = "html:target/cucumber-report.html",
         features = {"src/test/resources/Features"},
         glue = {"com.herokuapp.auto"},
         tags = {"@Run"})

@@ -1,37 +1,29 @@
 package com.herokuapp.auto.pageObjects;
 
+import com.herokuapp.auto.utils.PageHelper;
+import com.herokuapp.auto.utils.WaitHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AbstractPage {
-    protected WebDriver driver;
-    private int dynamicWaitTimeout;
+public abstract class AbstractPage {
+    protected WaitHelper waitHelper;
+    protected PageHelper pageHelper;
 
-    protected void waitForLoad() {
-    }
+    public abstract void waitForLoad();
+
+    public abstract boolean isOnThePage();
 
     protected void waitForLoad(WebElement element) {
-        WebDriverWait waiter = new WebDriverWait(driver, dynamicWaitTimeout);
-        waiter.until(ExpectedConditions.visibilityOf(element));
+        waitHelper.waitForElementToAppear(element);
     }
 
-    public WebDriver getDriver() {
-        return driver;
+    public void setWaitHelper(WaitHelper waitHelper) {
+        this.waitHelper = waitHelper;
     }
 
-    public void setDriver(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    public int getDynamicWaitTimeout() {
-        return dynamicWaitTimeout;
-    }
-
-    public void setDynamicWaitTimeout(int dynamicWaitTimeout) {
-        this.dynamicWaitTimeout = dynamicWaitTimeout;
+    public void setPageHelper(PageHelper pageHelper) {
+        this.pageHelper = pageHelper;
     }
 }
