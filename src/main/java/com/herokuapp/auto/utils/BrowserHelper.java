@@ -13,8 +13,16 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class BrowserHelper {
     static {
-        System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-        System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
+        String osName = System.getProperty("os.name").toLowerCase();
+        if (osName.contains("win")) {
+            System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+            System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
+        } else {
+            if (osName.contains("mac")) {
+                System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
+                System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver");
+            }
+        }
     }
 
     @Value("${browser.type}")

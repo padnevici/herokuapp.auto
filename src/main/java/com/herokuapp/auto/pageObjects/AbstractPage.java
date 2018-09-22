@@ -9,12 +9,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class AbstractPage {
     protected WebDriver driver;
+    private int dynamicWaitTimeout;
 
     protected void waitForLoad() {
     }
 
     protected void waitForLoad(WebElement element) {
-        WebDriverWait waiter = new WebDriverWait(driver, 30);
+        WebDriverWait waiter = new WebDriverWait(driver, dynamicWaitTimeout);
         waiter.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -24,5 +25,13 @@ public class AbstractPage {
 
     public void setDriver(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public int getDynamicWaitTimeout() {
+        return dynamicWaitTimeout;
+    }
+
+    public void setDynamicWaitTimeout(int dynamicWaitTimeout) {
+        this.dynamicWaitTimeout = dynamicWaitTimeout;
     }
 }

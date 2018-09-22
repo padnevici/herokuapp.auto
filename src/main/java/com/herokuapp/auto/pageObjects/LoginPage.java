@@ -21,13 +21,13 @@ public class LoginPage extends AbstractPage {
     @FindBy(how = How.XPATH, using = "//p[contains(@class,'error-message')]")
     private WebElement errorLabel;
 
-    public void typeUsername(String username) {
+    public void enterUsername(String username) {
         logger.info(String.format("Entering [%s] into username field...", username));
         usernameField.clear();
         usernameField.sendKeys(username);
     }
 
-    public void typePasswod(String passwrod) {
+    public void enterPasswod(String passwrod) {
         logger.info(String.format("Entering [%s] into password field...", passwrod));
         passwordField.clear();
         passwordField.sendKeys(passwrod);
@@ -46,6 +46,10 @@ public class LoginPage extends AbstractPage {
     public String getErrorMessageText() {
         logger.info(String.format("Getting error message text..."));
         return errorLabel.getText();
+    }
+
+    public WebElement getErrorLabel() {
+        return errorLabel;
     }
 
     @Override
