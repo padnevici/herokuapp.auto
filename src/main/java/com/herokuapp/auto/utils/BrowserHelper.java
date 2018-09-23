@@ -39,6 +39,9 @@ public class BrowserHelper {
     @Autowired
     PageHelper pageHelper;
 
+    @Autowired
+    WaitHelper waitHelper;
+
 
     private WebDriver driver;
     private Logger logger = LoggerFactory.getLogger(BrowserHelper.class);
@@ -79,6 +82,7 @@ public class BrowserHelper {
             logger.info(String.format("The [%s] browser is closed.", browserType));
             driver.quit();
             pageHelper.clearStoredPages();
+            waitHelper.clearWaiter();
         } else
             logger.info(String.format("The [%s] browser wre not opened.", browserType));
     }

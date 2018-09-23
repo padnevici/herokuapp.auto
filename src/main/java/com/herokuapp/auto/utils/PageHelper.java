@@ -31,6 +31,7 @@ public class PageHelper {
         currentPage = pages.get(page);
         currentPage.setWaitHelper(waitHelper);
         currentPage.setPageHelper(this);
+        currentPage.setBrowserHelper(browserHelper);
         currentPage.waitForLoad();
         return page.cast(currentPage);
     }

@@ -1,4 +1,3 @@
-@Run
 Feature: Verification of login and logout functions of herokuapp
 
   Background:

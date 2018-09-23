@@ -10,16 +10,16 @@ public class LoginPage extends AbstractPage {
     private Logger logger = LoggerFactory.getLogger(LoginPage.class);
 
     @FindBy(how = How.XPATH, using = "//input[@ng-model='user.name']")
-    private WebElement usernameField;
+    WebElement usernameField;
 
     @FindBy(how = How.XPATH, using = "//input[@ng-model='user.password']")
-    private WebElement passwordField;
+    WebElement passwordField;
 
     @FindBy(how = How.XPATH, using = "//button[@type='submit']")
-    private WebElement loginButton;
+    WebElement loginButton;
 
     @FindBy(how = How.XPATH, using = "//p[contains(@class,'error-message')]")
-    private WebElement errorLabel;
+    WebElement errorLabel;
 
     public void enterUsername(String username) {
         logger.info(String.format("Entering [%s] into username field...", username));
@@ -59,7 +59,7 @@ public class LoginPage extends AbstractPage {
 
     @Override
     public void waitForLoad() {
-        super.waitForLoad(loginButton);
+        waitHelper.waitForElementToAppear(loginButton);
     }
 
     @Override

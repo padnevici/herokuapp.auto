@@ -1,5 +1,6 @@
 package com.herokuapp.auto;
 
+import com.herokuapp.auto.testDataUtils.ScenarioContext;
 import com.herokuapp.auto.utils.BrowserHelper;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;

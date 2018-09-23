@@ -10,7 +10,7 @@ public class HeaderChunk extends AbstractPage {
     private Logger logger = LoggerFactory.getLogger(HeaderChunk.class);
 
     @FindBy(how = How.XPATH, using = "//p[@ng-click='logout()']")
-    private WebElement logoutButton;
+    WebElement logoutButton;
 
     public void clickLogoutBtn() {
         logger.info(String.format("Clicking Logout button..."));
@@ -25,7 +25,7 @@ public class HeaderChunk extends AbstractPage {
 
     @Override
     public void waitForLoad() {
-        super.waitForLoad(logoutButton);
+        waitHelper.waitForElementToAppear(logoutButton);
     }
 
     @Override

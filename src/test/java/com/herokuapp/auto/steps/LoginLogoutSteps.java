@@ -1,10 +1,8 @@
 package com.herokuapp.auto.steps;
 
-import com.herokuapp.auto.ScenarioContext;
 import com.herokuapp.auto.pageObjects.LoginPage;
-import com.herokuapp.auto.utils.PageHelper;
 import com.herokuapp.auto.utils.BrowserHelper;
-import com.herokuapp.auto.utils.WaitHelper;
+import com.herokuapp.auto.utils.PageHelper;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -18,34 +16,29 @@ import static org.hamcrest.core.Is.is;
 
 public class LoginLogoutSteps {
     @Autowired
-    ScenarioContext scenarioContext;
+    BrowserHelper browserHelper;
 
     @Autowired
-    private BrowserHelper browserHelper;
-
-    @Autowired
-    private PageHelper pageHelper;
-
-    @Autowired
-    private WaitHelper waitHelper;
+    PageHelper pageHelper;
 
     @Value("${herokuapp.url}")
-    private String herokuappurl;
+    String herokuappurl;
 
     @Value("${username}")
-    private String username;
+    String username;
 
     @Value("${password}")
-    private String password;
+    String password;
+
 
     @Given("^user is navigated to (Login) page$")
-    public void userIsNavigatedToLoginPage(String pageName){
+    public void userIsNavigatedToLoginPage(String pageName) {
         browserHelper.navigateTo(herokuappurl);
         pageHelper.getPage(LoginPage.class);
     }
 
     @When("^user logs in with wrong '(.*)' and '(.*)'$")
-    public void userLogsInWithWrongLoginAndPassword(String username, String password){
+    public void userLogsInWithWrongLoginAndPassword(String username, String password) {
         LoginPage loginPage = pageHelper.getPage(LoginPage.class);
         loginPage.enterUsername(username);
         loginPage.enterPasswod(password);
@@ -62,7 +55,7 @@ public class LoginLogoutSteps {
     }
 
     @When("^user logs in with correct credentials$")
-    public void userLogsInWithCorrectCredentials() throws Throwable {
+    public void userLogsInWithCorrectCredentials() {
         LoginPage loginPage = (LoginPage) pageHelper.getCurrentPage();
         loginPage.loginAs(username, password);
     }

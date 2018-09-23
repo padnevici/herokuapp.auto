@@ -1,5 +1,6 @@
 package com.herokuapp.auto.utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -47,5 +48,20 @@ public class WaitHelper {
         } catch (WebDriverException ex) {
             logger.error(ex.getMessage());
         }
+    }
+
+    public void waitForElementsToBeMoreThan(By by, int moreThanThis) {
+        logger.debug("Just waiting for elements to appear...");
+        waiter = initWaiter();
+        try {
+            waiter.until(ExpectedConditions.numberOfElementsToBeMoreThan(by, moreThanThis));
+            logger.debug("Web elements have appeared.");
+        } catch (WebDriverException ex) {
+            logger.error(ex.getMessage());
+        }
+    }
+
+    public void clearWaiter() {
+        waiter = null;
     }
 }

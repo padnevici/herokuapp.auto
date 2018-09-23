@@ -13,35 +13,34 @@ Feature: Verification of add new employer function of herokuapp
       | firstName   | lastName   | startDate   | email   |
       | <firstName> | <lastName> | <startDate> | <email> |
     And user clicks on Add button
-    Then CreateEmployer page is shown
+    Then CreateEmployer page is still shown
     And field '<fieldName>' is marked with an error
 
     Examples:
-      | firstName       | lastName        | startDate     | email            | fieldName |
-      |                 |                 |               |                  | firstName |
-      | [random-String] |                 |               |                  | lastName  |
-      | [random-String] | [random-String] |               |                  | startDate |
-      | [random-String] | [random-String] | [random-Date] |                  | email     |
-      |                 |                 |               | 12               | email     |
-      |                 |                 |               | @                | email     |
-      |                 |                 |               | 1@               | email     |
-      |                 |                 |               | sada@test.com  1 | email     |
+      | firstName      | lastName       | startDate     | email            | fieldName  |
+      |                |                |               |                  | FIRST_NAME |
+      | [random-Fname] |                |               |                  | LAST_NAME  |
+      | [random-Fname] | [random-Lname] |               |                  | START_DATE |
+      | [random-Fname] | [random-Lname] | [random-Date] |                  | EMAIL      |
+      | [random-Fname] | [random-Lname] | [random-Date] | 12               | EMAIL      |
+      | [random-Fname] | [random-Lname] | [random-Date] | @                | EMAIL      |
+      | [random-Fname] | [random-Lname] | [random-Date] | 1@               | EMAIL      |
+      | [random-Fname] | [random-Lname] | [random-Date] | sada@test.com  1 | EMAIL      |
 
 
   Scenario: scenario_2 - verify that employer is not added when cancel is clicked
     When user fulfill form with following data
-      | firstName       | lastName        | startDate     | email          |
-      | [random-String] | [random-String] | [random-Date] | [random-Email] |
+      | firstName      | lastName       | startDate     | email          |
+      | [random-Fname] | [random-Lname] | [random-Date] | [random-Email] |
     And user clicks on Cancel button
-    Then Dashboard page is shown
+    Then Dashboard page is loaded
     And canceled employer is not present in the list
 
 
-  Scenario: scenario_3 - verify that employer is  added when add is clicked and valid details
-    And all elements on CreateEmployer page are present
+  Scenario: scenario_3 - verify that employer is added when add is clicked and valid details
     When user fulfill form with following data
-      | firstName       | lastName        | startDate     | email          |
-      | [random-String] | [random-String] | [random-Date] | [random-Email] |
+      | firstName      | lastName       | startDate     | email          |
+      | [random-Fname] | [random-Lname] | [random-Date] | [random-Email] |
     And user clicks on Add button
-    Then Dashboard page is shown
+    Then Dashboard page is loaded
     And created employer is present in the list

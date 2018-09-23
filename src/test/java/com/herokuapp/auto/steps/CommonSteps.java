@@ -13,11 +13,11 @@ import static org.hamcrest.core.Is.is;
 
 public class CommonSteps {
     @Autowired
-    private PageHelper pageHelper;
+    PageHelper pageHelper;
 
-    @Then("^(Login|Dashboard) page is (loaded|still shown)$")
+    @Then("^(Login|Dashboard|CreateEmployer|EditEmployer) page is (loaded|still shown)$")
     public void loginPageIsLoaded(String pageName, String type) {
-        PageNameEnum pageNameEnum = PageNameEnum.valueOf(pageName + "Page");
+        PageNameEnum pageNameEnum = PageNameEnum.valueOf(pageName);
         AbstractPage page = pageHelper.getPage(pageNameEnum.getClazz());
         assertThat(String.format("%s page is not loaded...", pageName),
                 page.isOnThePage(), is(true));

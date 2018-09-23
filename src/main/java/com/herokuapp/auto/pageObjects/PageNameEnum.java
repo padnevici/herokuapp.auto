@@ -1,8 +1,10 @@
 package com.herokuapp.auto.pageObjects;
 
 public enum PageNameEnum {
-    LoginPage(com.herokuapp.auto.pageObjects.LoginPage.class),
-    DashboardPage(DashboardPage.class);
+    Login(com.herokuapp.auto.pageObjects.LoginPage.class),
+    Dashboard(DashboardPage.class),
+    CreateEmployer(CreateEmployerPage.class),
+    EditEmployer(EditEmployerPage.class);
 
     PageNameEnum(Class clazz) {
         this.clazz = clazz;
