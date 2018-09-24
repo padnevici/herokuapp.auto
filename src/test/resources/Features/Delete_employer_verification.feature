@@ -1,3 +1,4 @@
+@Regression
 Feature: Verification of delete employer function of herokuapp
 
   Background:
@@ -13,7 +14,7 @@ Feature: Verification of delete employer function of herokuapp
     Then Dashboard page is loaded
     And created employee is present in the list
 
-  @Smoke1
+  @Smoke
   Scenario: scenario_1 - verify that employer can be deleted from Dashboard page
     When created employee is selected
     And user clicks on Delete button on DashboardPage

@@ -1,3 +1,4 @@
+@Regression
 Feature: Verification of add new employer function of herokuapp
 
   Background:
@@ -36,7 +37,7 @@ Feature: Verification of add new employer function of herokuapp
     Then Dashboard page is loaded
     And canceled employee is not present in the list
 
-
+  @Smoke
   Scenario: scenario_3 - verify that employer is added when add is clicked and valid details
     When user fulfill form with following data on CreateEmployer page
       | firstName      | lastName       | startDate     | email          |

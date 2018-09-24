@@ -1,3 +1,4 @@
+@Regression
 Feature: Verification of edit employer function of herokuapp
 
   Background:
@@ -45,7 +46,7 @@ Feature: Verification of edit employer function of herokuapp
     When user opens details for created employee
     Then employee details were not updated
 
-
+  @Smoke
   Scenario: scenario_3 - verify that employer is update when Update is clicked and valid data
     When user fulfill form with following data on EditEmployer page
       | firstName      | lastName       | startDate     | email          |

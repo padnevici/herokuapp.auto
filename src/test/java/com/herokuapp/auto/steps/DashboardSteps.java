@@ -31,7 +31,7 @@ public class DashboardSteps {
         if (action.equalsIgnoreCase("Edit"))
             dashboardPage.clickEditBtn();
         if (action.equalsIgnoreCase("Delete")) {
-            if(browserHelper.isPhantomJs())
+            if (browserHelper.isPhantomJs())
                 throw new UnsupportedOperationException("Javascript alerts are not supported in headless browser Phantom Js");
             dashboardPage.clickDeleteBtn();
         }

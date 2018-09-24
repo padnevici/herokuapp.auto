@@ -1,3 +1,4 @@
+@Regression
 Feature: Verification of login and logout functions of herokuapp
 
   Background:
@@ -21,7 +22,7 @@ Feature: Verification of login and logout functions of herokuapp
     When user logs in with wrong '' and ''
     Then Login page is still shown
 
-@Smoke
+  @Smoke
   Scenario: scenario_3 - verify that user can login with valid credentials and logout
     When user logs in with correct credentials
     Then Dashboard page is loaded

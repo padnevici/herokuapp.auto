@@ -1,5 +1,7 @@
+@Regression
 Feature: Verification of some Dashboard functions of herokuapp
 
+  @Smoke
   Scenario: scenario_1 - verify that Edit and Delete buttons are disabled
     Given user is navigated to Login page
     When user logs in with correct credentials
