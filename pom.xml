@@ -17,6 +17,30 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>3.20.0</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>herokuapAutomation</projectName>
+                            <outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
+                            <!--<cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>-->
+                            <inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
+                            <jsonFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

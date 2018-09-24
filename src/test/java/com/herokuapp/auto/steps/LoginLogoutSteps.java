@@ -39,7 +39,7 @@ public class LoginLogoutSteps {
 
     @When("^user logs in with wrong '(.*)' and '(.*)'$")
     public void userLogsInWithWrongLoginAndPassword(String username, String password) {
-        LoginPage loginPage = pageHelper.getPage(LoginPage.class);
+        LoginPage loginPage = (LoginPage) pageHelper.getCurrentPage();
         loginPage.enterUsername(username);
         loginPage.enterPasswod(password);
         loginPage.clickLoginBtn();

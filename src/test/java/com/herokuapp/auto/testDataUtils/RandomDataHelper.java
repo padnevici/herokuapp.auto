@@ -1,6 +1,7 @@
 package com.herokuapp.auto.testDataUtils;
 
 import com.github.javafaker.Faker;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,11 +29,11 @@ public class RandomDataHelper {
     }
 
     public static String getRandomFirstname() {
-        return faker.name().firstName();
+        return faker.name().firstName() + "-" + RandomStringUtils.randomAlphabetic(5);
     }
 
     public static String getRandomLastname() {
-        return faker.name().lastName();
+        return faker.name().lastName() + "-" + RandomStringUtils.randomAlphabetic(5);
     }
 
     public static String getRandomStartDate() {

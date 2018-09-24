@@ -12,7 +12,7 @@ Feature: Verification of some Dashboard functions of herokuapp
     Given user is navigated to Login page
     When user logs in with correct credentials
     Then Dashboard page is loaded
-    When a random employer is selected
+    When any employer is selected
     Then Edit button is enabled
     And Delete button is enabled
 
@@ -21,6 +21,6 @@ Feature: Verification of some Dashboard functions of herokuapp
     Given user is navigated to Login page
     When user logs in with correct credentials
     Then Dashboard page is loaded
-    When a random employer is selected
+    When any employer is selected
     And user makes double click on it
     Then EditEmployer page is loaded

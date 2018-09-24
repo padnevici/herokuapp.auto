@@ -37,4 +37,17 @@ public class Employee {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Employee objEmployee;
+        if (obj instanceof Employee)
+            objEmployee = (Employee) obj;
+        else
+            return false;
+        return objEmployee.firstName.equals(this.firstName)
+                && objEmployee.lastName.equals(this.lastName)
+                && objEmployee.startDate.equals(this.startDate)
+                && objEmployee.email.equals(this.email);
+    }
 }

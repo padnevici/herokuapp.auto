@@ -1,5 +1,6 @@
 package com.herokuapp.auto.utils;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -42,6 +43,10 @@ public class BrowserHelper {
     @Autowired
     WaitHelper waitHelper;
 
+    private final String chrome = "CHROME";
+    private final String firefox = "FIREFOX";
+    private final String phantomJs = "PHANTOMJS";
+
 
     private WebDriver driver;
     private Logger logger = LoggerFactory.getLogger(BrowserHelper.class);
@@ -49,15 +54,15 @@ public class BrowserHelper {
     public WebDriver initDriver() {
         logger.info(String.format("Starting the [%s] browser...", browserType));
         switch (browserType.toUpperCase()) {
-            case "CHROME":
+            case chrome:
                 driver = new ChromeDriver();
                 driver.manage().window().maximize();
                 break;
-            case "FIREFOX":
+            case firefox:
                 driver = new FirefoxDriver();
                 driver.manage().window().maximize();
                 break;
-            case "PHANTOMJS":
+            case phantomJs:
                 DesiredCapabilities caps = new DesiredCapabilities();
                 caps.setJavascriptEnabled(true);
                 caps.setCapability("takesScreenshot", true);
@@ -94,5 +99,21 @@ public class BrowserHelper {
 
     public WebDriver getDriver() {
         return driver;
+    }
+
+    public boolean isChrome() {
+        return browserType.equalsIgnoreCase(chrome);
+    }
+
+    public boolean isFirefox() {
+        return browserType.equalsIgnoreCase(firefox);
+    }
+
+    public boolean isPhantomJs() {
+        return browserType.equalsIgnoreCase(phantomJs);
+    }
+
+    public void executeJavaScript(String script) {
+        ((JavascriptExecutor) driver).executeScript(script);
     }
 }

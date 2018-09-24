@@ -32,29 +32,47 @@ public class WaitHelper {
             return waiter;
     }
 
-    public void waitForElementToAppearOrThrow(WebElement element) {
-        logger.debug("Waiting for element to appear or throw an error...");
-        waiter = initWaiter();
-        waiter.until(ExpectedConditions.visibilityOf(element));
-        logger.debug("Web element has appeared.");
-    }
+//    public void waitForAlertToDisapear() {
+//        int i = 0;
+//        while (i < 15) {
+//            try {
+//                browserHelper.getDriver().switchTo().alert();
+//                Thread.sleep(1000);
+//            } catch (NoAlertPresentException a) {
+//                break;
+//            } catch (Exception e) {
+//            }
+//            i++;
+//        }
+//    }
 
     public void waitForElementToAppear(WebElement element) {
         logger.debug("Just waiting for element to appear...");
         waiter = initWaiter();
+//        try {
+        waiter.until(ExpectedConditions.visibilityOf(element));
+        logger.debug("Web element has appeared.");
+//        } catch (WebDriverException ex) {
+//            logger.error(ex.getMessage());
+//        }
+    }
+
+    public void waitForElementsToBeMoreThan(By by, int moreThanThis) {
+        logger.debug("Just waiting for list of elements to appear...");
+        waiter = initWaiter();
         try {
-            waiter.until(ExpectedConditions.visibilityOf(element));
-            logger.debug("Web element has appeared.");
+            waiter.until(ExpectedConditions.numberOfElementsToBeMoreThan(by, moreThanThis));
+            logger.debug("Web elements have appeared.");
         } catch (WebDriverException ex) {
             logger.error(ex.getMessage());
         }
     }
 
-    public void waitForElementsToBeMoreThan(By by, int moreThanThis) {
+    public void waitForElementToBeEnabled(WebElement element) {
         logger.debug("Just waiting for elements to appear...");
         waiter = initWaiter();
         try {
-            waiter.until(ExpectedConditions.numberOfElementsToBeMoreThan(by, moreThanThis));
+            waiter.until(ExpectedConditions.elementToBeClickable(element));
             logger.debug("Web elements have appeared.");
         } catch (WebDriverException ex) {
             logger.error(ex.getMessage());

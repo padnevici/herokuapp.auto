@@ -18,7 +18,9 @@ public class CommonSteps {
     @Then("^(Login|Dashboard|CreateEmployer|EditEmployer) page is (loaded|still shown)$")
     public void loginPageIsLoaded(String pageName, String type) {
         PageNameEnum pageNameEnum = PageNameEnum.valueOf(pageName);
-        AbstractPage page = pageHelper.getPage(pageNameEnum.getClazz());
+        AbstractPage page = (type.equalsIgnoreCase("loaded"))
+                ? pageHelper.getPage(pageNameEnum.getClazz())
+                : pageHelper.getCurrentPage();
         assertThat(String.format("%s page is not loaded...", pageName),
                 page.isOnThePage(), is(true));
     }
