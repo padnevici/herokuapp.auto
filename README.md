@@ -15,7 +15,7 @@ Listed technology stack allow me to create a powerful test framework for UI Auto
 
 
 # Prerequisites:
-Before able to run test with this automation test framework you would need to setup some tools
+Before able to run test with this automation test framework you would need to setup some tools.
 * JDK 8 from here https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 * Maven from here https://maven.apache.org
 * Configure JAVA_HOME and add java.exe to system path. An example is here https://stackoverflow.com/questions/2619584/how-to-set-java-home-on-windows-7
@@ -34,6 +34,7 @@ Scenarios are written in plain English using Gerking format.
 **Note:** Current test coverage is not full and it can contain more negative scenarios with StartDate and Email verification. But due to lack of time I stick with current tests only.
 
 # How To Run tests
+* Clone the project from GitHub
 * Open cmd in windows or terminal in macOs
 * Go to the root folder of the project "herokuapp.auto"
 * Execute following command to execute Smoke tests:
