@@ -1,14 +1,14 @@
 # herokuapp.auto Automation Test Framework Solution
 This is a basic test framework developed as a solution to test assignment. 
-* Cucumber - Automated test approach was based BDD. And selected tool for this is Cucumber. This framework allow to write scenarios in plain English, which make easier understanding them by non technical people and not only. All the heavy coding stuff is hided from Business analysts. 
-* Maven-Cucumber-Reporting - This maven plugin was selected to generate a beautiful and very informative report of test results.
-* Java - As programming language I selected Java, as it allow writing very powerful working code in tandem with other java libraries (Logback, Spring, Cucumber, Maven...). 
-* Logback - For any loging stuff it is best library. It is simple and with powerful possibilities which makes loging stuff very easy.
-* Spring - Since Cucumber has its own Cucumber Context I used this framework in order to pass data between steps (where it was needed).
-* Selenium Web Driver - For UI tests execution it is best library. it is open source, has very powerful methods, Implements Page Object pattern and it is cross browser.
-* Matchers (Hamcrest) - This library was selected to do assertion stuff. Using its very reach functionality I can do very smartly assertion.
-* JavaFaker - This library was selected to be able to generate intuitive random data necessary for test execution.
-* Maven - as software project management and comprehension tool. It has powerful functionalities, reach documentation and many examples on the Internet. 
+* __Cucumber__ - Automated test approach was based BDD. And selected tool for this is Cucumber. This framework allow to write scenarios in plain English, which make easier understanding them by non technical people and not only. All the heavy coding stuff is hided from Business analysts. 
+* __Maven-Cucumber-Reporting__ - This maven plugin was selected to generate a beautiful and very informative report of test results.
+* __Java__ - As programming language I selected Java, as it allow writing very powerful working code in tandem with other java libraries (Logback, Spring, Cucumber, Maven...). 
+* __Logback__ - For any loging stuff it is best library. It is simple and with powerful possibilities which makes loging stuff very easy.
+* __Spring__ - Since Cucumber has its own Cucumber Context I used this framework in order to pass data between steps (where it was needed).
+* __Selenium Web Driver__ - For UI tests execution it is best library. it is open source, has very powerful methods, Implements Page Object pattern and it is cross browser.
+* __Matchers (Hamcrest)__ - This library was selected to do assertion stuff. Using its very reach functionality I can do very smartly assertion.
+* __JavaFaker__ - This library was selected to be able to generate intuitive random data necessary for test execution.
+* __Maven__ - as software project management and comprehension tool. It has powerful functionalities, reach documentation and many examples on the Internet. 
 
 
 Listed technology stack allow me to create a powerful test framework for UI Automation.
